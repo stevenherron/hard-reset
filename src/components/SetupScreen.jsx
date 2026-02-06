@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import FullscreenToggle from './FullscreenToggle';
 import { audioController } from '../logic/AudioController';
 
 
@@ -19,8 +18,6 @@ export default function SetupScreen({ initialSettings, onStart }) {
             <div className="header-section">
                 <h1 className="app-title">PRO TRAINER</h1>
                 <div className="app-subtitle">HARD RESET</div>
-                <FullscreenToggle />
-
             </div>
 
             <div className="compact-scroll-area">

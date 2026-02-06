@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRhythmEngine } from '../logic/useRhythmEngine';
 import { MOVES } from '../data/moves';
-import FullscreenToggle from './FullscreenToggle';
 
 
 export default function TrainingScreen({ settings, onFinish }) {
@@ -62,8 +61,6 @@ export default function TrainingScreen({ settings, onFinish }) {
             <div className="info-bar">
                 <span>R {engine.currentRound}</span>
                 <span>{settings.sport} - {settings.level}</span>
-                <FullscreenToggle />
-
             </div>
 
             <div className={`visual-beat ${flash ? 'flash' : ''}`} />
