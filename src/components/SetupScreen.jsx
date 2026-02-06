@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import FullscreenToggle from './FullscreenToggle';
+import { audioController } from '../logic/AudioController';
 
 
 export default function SetupScreen({ initialSettings, onStart }) {
@@ -27,7 +28,10 @@ export default function SetupScreen({ initialSettings, onStart }) {
                     <label>Sport</label>
                     <div className="toggle-group sm">
                         {['Boxing', 'Kickboxing', 'Muay Thai'].map(s => (
-                            <button key={s} className={formData.sport === s ? 'active' : ''} onClick={() => setFormData({ ...formData, sport: s })}>{s}</button>
+                            <button key={s} className={formData.sport === s ? 'active' : ''} onClick={() => {
+                                audioController.init();
+                                setFormData({ ...formData, sport: s });
+                            }}>{s}</button>
                         ))}
                     </div>
                 </section>
@@ -36,7 +40,10 @@ export default function SetupScreen({ initialSettings, onStart }) {
                     <label>Difficulty</label>
                     <div className="toggle-group sm">
                         {['Easy', 'Medium', 'Pro'].map(l => (
-                            <button key={l} className={formData.level === l ? 'active' : ''} onClick={() => setFormData({ ...formData, level: l })}>{l}</button>
+                            <button key={l} className={formData.level === l ? 'active' : ''} onClick={() => {
+                                audioController.init();
+                                setFormData({ ...formData, level: l });
+                            }}>{l}</button>
                         ))}
                     </div>
                 </section>

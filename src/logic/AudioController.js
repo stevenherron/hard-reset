@@ -11,8 +11,22 @@ export class AudioController {
             this.ctx.resume();
         }
         // Try to load a good voice
-        const voices = this.synth.getVoices();
-        this.voice = voices.find(v => v.lang.includes('en') && v.name.includes('Google')) || voices[0];
+        let voices = this.synth.getVoices();
+        const findVoice = () => {
+            voices = this.synth.getVoices();
+            this.voice = voices.find(v => v.lang.includes('en') && (v.name.includes('Google') || v.name.includes('Premium'))) || voices[0];
+        };
+
+        if (voices.length === 0) {
+            this.synth.onvoiceschanged = findVoice;
+        } else {
+            findVoice();
+        }
+
+        // Prime the speech engine with a silent utterance (Mobile Requirement)
+        const prime = new SpeechSynthesisUtterance('');
+        prime.volume = 0;
+        this.synth.speak(prime);
     }
 
     playTone(frequency = 440, duration = 0.1, type = 'sine') {
