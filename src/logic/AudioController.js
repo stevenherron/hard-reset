@@ -95,8 +95,8 @@ export class AudioController {
         this.speak('Last One');
     }
 
-    speak(text) {
-        if (this.synth.speaking) {
+    speak(text, interrupt = false) {
+        if (interrupt && this.synth.speaking) {
             this.synth.cancel();
         }
         const utterance = new SpeechSynthesisUtterance(text);

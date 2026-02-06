@@ -133,7 +133,7 @@ export function useRhythmEngine() {
         stateRef.current.status = STATUS.ROUND_ACTIVE;
         setRoundTimeLeft(settingsRef.current.roundDuration);
         audioController.playTone(660, 0.5);
-        audioController.speak("Fight");
+        audioController.speak("Fight", true); // Interrupt any prep background noise
 
         // Init Round State
         stateRef.current.remainingRepeats = 0;
@@ -150,8 +150,8 @@ export function useRhythmEngine() {
 
         setCurrentCombo(newCombo);
 
-        // Wait 1s then Announce
-        triggerAnnouncePhase(performance.now() + 1000, newCombo);
+        // Wait 1.5s then Announce (Give "Fight" time to play)
+        triggerAnnouncePhase(performance.now() + 1500, newCombo);
     };
 
     const startRest = () => {
@@ -159,7 +159,7 @@ export function useRhythmEngine() {
         stateRef.current.status = STATUS.ROUND_REST;
         setRoundTimeLeft(settingsRef.current.restDuration);
         audioController.playTone(660, 0.5);
-        audioController.speak("Rest");
+        audioController.speak("Rest", true);
         setCurrentCombo(null);
         setCurrentActionIndex(-1);
         setSubStatus(STATUS.ROUND_REST); // This is a bit of a hack, as ROUND_REST is a STATUS, not SUB_STATUS
@@ -174,6 +174,7 @@ export function useRhythmEngine() {
 
         // Announce Last Rep if applicable
         if (state.remainingRepeats === 2 && settingsRef.current.repetitionCount !== 'Infinity') {
+            // Queue "Last One" - we don't interrupt here so current sounds finish
             audioController.announceLastRep();
         }
 
