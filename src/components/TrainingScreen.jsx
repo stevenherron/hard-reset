@@ -143,19 +143,20 @@ export default function TrainingScreen({ settings, onFinish }) {
                     display: flex;
                     flex-direction: column;
                     height: 100%;
-                    padding: 20px;
+                    padding: 15px;
                     box-sizing: border-box;
-                    justify-content: space-between;
                     background: var(--color-bg);
+                    overflow: hidden;
+                    position: relative;
                 }
                 .info-bar {
                     display: flex;
                     justify-content: space-between;
                     color: var(--color-text-dim);
-                    font-size: 1rem;
+                    font-size: 0.9rem;
                     text-transform: uppercase;
-                    height: 40px;
-                    padding: 10px 0;
+                    height: 35px;
+                    padding-bottom: 8px;
                     font-weight: 800;
                     letter-spacing: 2px;
                     border-bottom: 1px solid #222;
@@ -178,26 +179,29 @@ export default function TrainingScreen({ settings, onFinish }) {
                     align-items: center;
                     justify-content: center;
                     z-index: 1;
-                    min-height: 250px;
+                    padding: 20px 0;
                 }
                 
                 .status-footer {
-                    height: 140px;
+                    min-height: 120px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     z-index: 1;
+                    margin-bottom: 10px;
                 }
 
                 .giant-text {
-                    font-size: 5rem;
+                    font-size: 3.5rem;
                     font-weight: 900;
                     text-transform: uppercase;
                     color: var(--color-primary);
                     text-shadow: 0 0 30px var(--color-primary-glow);
+                    text-align: center;
+                    line-height: 1.1;
                 }
                 .giant-text.small {
-                    font-size: 3rem;
+                    font-size: 2.5rem;
                 }
 
                 .combo-display {
@@ -205,12 +209,13 @@ export default function TrainingScreen({ settings, onFinish }) {
                     flex-direction: column;
                     align-items: center;
                     width: 100%;
+                    text-align: center;
                 }
 
                 .combo-sequence {
-                    margin-bottom: 2.5rem;
-                    font-size: 1.6rem;
-                    line-height: 1.4;
+                    margin-bottom: 2rem;
+                    font-size: 1.4rem;
+                    line-height: 1.2;
                     color: var(--color-text-dim);
                     text-align: center;
                     width: 100%;
@@ -218,26 +223,28 @@ export default function TrainingScreen({ settings, onFinish }) {
                     letter-spacing: 1px;
                 }
                 .current-move-large {
-                    font-size: 4.5rem;
+                    font-size: 3.5rem;
                     font-weight: 900;
                     text-transform: uppercase;
                     color: #fff;
                     line-height: 1;
+                    text-align: center;
                     animation: pop 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                     text-shadow: 0 0 20px rgba(255,0,0,0.6);
+                    width: 100%;
                 }
                 
                 .beat-dots {
                     display: flex;
-                    gap: 20px;
+                    gap: 15px;
                     justify-content: center;
-                    margin-top: 1rem;
+                    margin-top: 0.8rem;
                 }
                 .dot {
-                    width: 18px;
-                    height: 18px;
+                    width: 14px;
+                    height: 14px;
                     border-radius: 50%;
-                    border: 3px solid #333;
+                    border: 2px solid #333;
                     transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                 }
                 .reset .dot.active {
@@ -254,32 +261,32 @@ export default function TrainingScreen({ settings, onFinish }) {
                 }
 
                 .timer-display {
-                    font-size: 5rem;
+                    font-size: 4rem;
                     font-weight: 800;
                     font-variant-numeric: tabular-nums;
                     text-align: center;
-                    margin-bottom: 20px;
+                    margin-bottom: 15px;
                     color: var(--color-text);
                     opacity: 0.8;
                 }
                 
                 .combo-meta {
-                    margin-bottom: 30px;
+                    margin-bottom: 20px;
                     display: flex;
                     justify-content: center;
-                    gap: 10px;
+                    gap: 8px;
                     min-height: 15px;
                 }
                 .rep-dot {
-                    width: 14px;
-                    height: 14px;
+                    width: 12px;
+                    height: 12px;
                     background-color: var(--color-primary);
                     border-radius: 50%;
                     box-shadow: 0 0 10px var(--color-primary-glow);
                 }
                 .rep-dot.infinite {
                     color: var(--color-primary);
-                    font-size: 2rem;
+                    font-size: 1.8rem;
                     line-height: 0.5;
                 }
                 .stop-btn {
@@ -287,13 +294,13 @@ export default function TrainingScreen({ settings, onFinish }) {
                     border: 1px solid #333;
                     color: var(--color-text-muted);
                     width: 100%;
-                    padding: 22px;
+                    padding: 18px;
                     border-radius: var(--border-radius);
-                    font-size: 1.1rem;
+                    font-size: 1rem;
                     letter-spacing: 2px;
                     transition: all 0.3s;
                 }
-                .stop-btn:hover {
+                .stop-btn:active {
                     background: rgba(255,0,0,0.1);
                     border-color: var(--color-primary-dim);
                     color: var(--color-primary);

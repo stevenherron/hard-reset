@@ -20,7 +20,7 @@ export default function SetupScreen({ initialSettings, onStart }) {
                 <div className="app-subtitle">HARD RESET</div>
             </div>
 
-            <div className="compact-scroll-area">
+            <div className="settings-container">
                 <section className="setting-row">
                     <label>Sport</label>
                     <div className="toggle-group sm">
@@ -99,17 +99,15 @@ export default function SetupScreen({ initialSettings, onStart }) {
 
             <style>{`
                 /* Compact Layout Styles */
-                .header-section { margin-bottom: 25px; text-align: center; animation: fadeInUp 0.5s ease-out; }
-                .app-title { font-size: 2.5rem; font-weight: 900; color: #fff; line-height: 1; font-style: italic; letter-spacing: -1px; }
-                .app-subtitle { color: var(--color-primary); font-size: 0.9rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin-top: 4px; }
+                .header-section { margin-bottom: 15px; text-align: center; animation: fadeInUp 0.5s ease-out; }
+                .app-title { font-size: 2.2rem; font-weight: 900; color: #fff; line-height: 1; font-style: italic; letter-spacing: -1px; }
+                .app-subtitle { color: var(--color-primary); font-size: 0.8rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin-top: 4px; }
                 
-                .compact-scroll-area {
-                    flex: 1;
+                .settings-container {
                     display: flex;
                     flex-direction: column;
-                    gap: 20px;
-                    overflow-y: auto;
-                    padding-bottom: 20px;
+                    gap: 15px;
+                    margin-bottom: 20px;
                 }
 
                 .setting-row label { margin-top: 0; margin-bottom: 10px; display: block; border-bottom: 1px solid #222; padding-bottom: 4px; }
@@ -135,10 +133,10 @@ export default function SetupScreen({ initialSettings, onStart }) {
                 .settings-grid { 
                     display: grid; 
                     grid-template-columns: 1fr 1fr; 
-                    gap: 20px; 
-                    margin-bottom: 5px; 
+                    gap: 15px; 
+                    margin-bottom: 0px; 
                     background: rgba(255,255,255,0.03); 
-                    padding: 20px; 
+                    padding: 12px; 
                     border-radius: var(--border-radius); 
                 }
                 .grid-item { display: flex; flex-direction: column; }
@@ -162,11 +160,11 @@ export default function SetupScreen({ initialSettings, onStart }) {
 
                 .sliders-compact { 
                     background: rgba(255,255,255,0.03); 
-                    padding: 20px; 
+                    padding: 15px; 
                     border-radius: var(--border-radius); 
                     display: flex; 
                     flex-direction: column; 
-                    gap: 20px; 
+                    gap: 12px; 
                 }
                 .slider-row label { 
                     margin: 0 0 12px 0; 

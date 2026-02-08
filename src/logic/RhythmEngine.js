@@ -21,6 +21,15 @@ export const SUB_STATUS = {
 export class RhythmEngine {
     constructor() {
         this.listeners = new Set();
+        this.settings = {
+            roundDuration: 180,
+            restDuration: 60,
+            bpm: 100,
+            level: 'Easy',
+            sport: 'Boxing',
+            resetLength: 4,
+            repetitionCount: 5
+        };
         this.reset();
     }
 
@@ -46,15 +55,6 @@ export class RhythmEngine {
 
         this.requestRef = null;
         this.timerRef = null;
-        this.settings = {
-            roundDuration: 180,
-            restDuration: 60,
-            bpm: 100,
-            level: 'Easy',
-            sport: 'Boxing',
-            resetLength: 4,
-            repetitionCount: 5
-        };
     }
 
     setSettings(newSettings) {
