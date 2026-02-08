@@ -143,27 +143,31 @@ export default function TrainingScreen({ settings, onFinish }) {
                     display: flex;
                     flex-direction: column;
                     height: 100%;
-                    padding: 10px;
+                    padding: 20px;
                     box-sizing: border-box;
                     justify-content: space-between;
+                    background: var(--color-bg);
                 }
                 .info-bar {
                     display: flex;
                     justify-content: space-between;
-                    color: #666;
-                    font-size: 0.9rem;
+                    color: var(--color-text-dim);
+                    font-size: 1rem;
                     text-transform: uppercase;
-                    height: 30px;
+                    height: 40px;
+                    padding: 10px 0;
+                    font-weight: 800;
+                    letter-spacing: 2px;
+                    border-bottom: 1px solid #222;
                 }
                 .visual-beat {
                     position: absolute;
                     top: 0; left: 0; right: 0; bottom: 0;
-                    background: radial-gradient(circle, rgba(255,0,0,0.3) 0%, rgba(0,0,0,0) 60%);
+                    background: radial-gradient(circle, var(--color-primary-glow) 0%, rgba(0,0,0,0) 70%);
                     opacity: 0;
                     pointer-events: none;
-                    transition: opacity 0.1s ease-out;
+                    transition: opacity 0.05s ease-out;
                     z-index: 0;
-                    will-change: opacity;
                 }
                 .visual-beat.flash { opacity: 1; }
                 
@@ -174,11 +178,11 @@ export default function TrainingScreen({ settings, onFinish }) {
                     align-items: center;
                     justify-content: center;
                     z-index: 1;
-                    min-height: 200px;
+                    min-height: 250px;
                 }
                 
                 .status-footer {
-                    height: 120px; /* Fixed height to prevent jumps */
+                    height: 140px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -186,13 +190,14 @@ export default function TrainingScreen({ settings, onFinish }) {
                 }
 
                 .giant-text {
-                    font-size: 4rem;
-                    font-weight: 800;
+                    font-size: 5rem;
+                    font-weight: 900;
                     text-transform: uppercase;
                     color: var(--color-primary);
+                    text-shadow: 0 0 30px var(--color-primary-glow);
                 }
                 .giant-text.small {
-                    font-size: 2.5rem; /* Smaller for status */
+                    font-size: 3rem;
                 }
 
                 .combo-display {
@@ -200,101 +205,98 @@ export default function TrainingScreen({ settings, onFinish }) {
                     flex-direction: column;
                     align-items: center;
                     width: 100%;
-                    animation: slideInText 0.3s ease-out;
                 }
 
                 .combo-sequence {
-                    margin-bottom: 2rem;
-                    font-size: 1.4rem; /* Larger */
-                    line-height: 1.5;
-                    color: #888;
+                    margin-bottom: 2.5rem;
+                    font-size: 1.6rem;
+                    line-height: 1.4;
+                    color: var(--color-text-dim);
                     text-align: center;
                     width: 100%;
-                    font-weight: 500;
-                    letter-spacing: 0.5px;
+                    font-weight: 600;
+                    letter-spacing: 1px;
                 }
                 .current-move-large {
-                    font-size: 3.5rem; /* Larger */
+                    font-size: 4.5rem;
                     font-weight: 900;
                     text-transform: uppercase;
                     color: #fff;
-                    line-height: 1.1;
+                    line-height: 1;
                     animation: pop 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                    text-shadow: 0 0 10px rgba(255,0,0,0.5);
+                    text-shadow: 0 0 20px rgba(255,0,0,0.6);
                 }
                 
-                /* Dots */
                 .beat-dots {
                     display: flex;
-                    gap: 15px;
+                    gap: 20px;
                     justify-content: center;
-                    margin-top: 0.5rem;
+                    margin-top: 1rem;
                 }
                 .dot {
-                    width: 15px;
-                    height: 15px;
+                    width: 18px;
+                    height: 18px;
                     border-radius: 50%;
-                    border: 2px solid #555;
+                    border: 3px solid #333;
                     transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                 }
                 .reset .dot.active {
-                    background-color: #555;
-                    box-shadow: 0 0 10px #555;
+                    background-color: #777;
+                    border-color: #777;
                     transform: scale(1.2);
                 }
-                .count-in .dot { border-color: var(--color-primary); }
+                .count-in .dot { border-color: var(--color-primary-dim); }
                 .count-in .dot.active {
                     background-color: var(--color-primary);
-                    box-shadow: 0 0 20px var(--color-primary);
-                    transform: scale(1.3);
-                }
-
-                .phase-content {
-                    animation: fadeInUp 0.3s ease-out;
+                    border-color: var(--color-primary);
+                    box-shadow: 0 0 25px var(--color-primary);
+                    transform: scale(1.4);
                 }
 
                 .timer-display {
-                    font-size: 4rem;
-                    font-weight: 700;
+                    font-size: 5rem;
+                    font-weight: 800;
                     font-variant-numeric: tabular-nums;
                     text-align: center;
-                    margin-top: auto;
-                    color: #444;
-                    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+                    margin-bottom: 20px;
+                    color: var(--color-text);
+                    opacity: 0.8;
                 }
                 
                 .combo-meta {
-                    margin-bottom: 20px;
+                    margin-bottom: 30px;
                     display: flex;
                     justify-content: center;
-                    gap: 8px;
-                    min-height: 12px;
-                    flex-wrap: wrap;
-                    max-width: 300px;
+                    gap: 10px;
+                    min-height: 15px;
                 }
                 .rep-dot {
-                    width: 12px;
-                    height: 12px;
+                    width: 14px;
+                    height: 14px;
                     background-color: var(--color-primary);
                     border-radius: 50%;
-                    box-shadow: 0 0 8px var(--color-primary);
-                    transition: all 0.3s ease;
+                    box-shadow: 0 0 10px var(--color-primary-glow);
                 }
                 .rep-dot.infinite {
-                    background: transparent;
-                    box-shadow: none;
                     color: var(--color-primary);
-                    font-size: 1.5rem;
+                    font-size: 2rem;
                     line-height: 0.5;
                 }
                 .stop-btn {
-                    background: transparent;
+                    background: rgba(255,255,255,0.05);
                     border: 1px solid #333;
-                    color: #666;
+                    color: var(--color-text-muted);
                     width: 100%;
-                    padding: 15px;
-                    margin-top: 5px;
-                    cursor: pointer;
+                    padding: 22px;
+                    border-radius: var(--border-radius);
+                    font-size: 1.1rem;
+                    letter-spacing: 2px;
+                    transition: all 0.3s;
+                }
+                .stop-btn:hover {
+                    background: rgba(255,0,0,0.1);
+                    border-color: var(--color-primary-dim);
+                    color: var(--color-primary);
                 }
             `}</style>
         </div>

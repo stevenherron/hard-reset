@@ -99,30 +99,53 @@ export default function SetupScreen({ initialSettings, onStart }) {
 
             <style>{`
                 /* Compact Layout Styles */
-                .header-section { margin-bottom: 15px; text-align: center; animation: fadeInUp 0.5s ease-out; }
-                .app-title { font-size: 2.2rem; font-weight: 900; color: #fff; line-height: 1; font-style: italic; letter-spacing: -1px; }
-                .app-subtitle { color: var(--color-primary); font-size: 0.9rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+                .header-section { margin-bottom: 25px; text-align: center; animation: fadeInUp 0.5s ease-out; }
+                .app-title { font-size: 2.5rem; font-weight: 900; color: #fff; line-height: 1; font-style: italic; letter-spacing: -1px; }
+                .app-subtitle { color: var(--color-primary); font-size: 0.9rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin-top: 4px; }
                 
                 .compact-scroll-area {
                     flex: 1;
                     display: flex;
                     flex-direction: column;
-                    gap: 15px;
+                    gap: 20px;
                     overflow-y: auto;
                     padding-bottom: 20px;
                 }
 
-                .setting-row label { margin-top: 0; margin-bottom: 5px; display: block; }
-                .toggle-group { display: flex; gap: 8px; }
-                .toggle-group button { padding: 10px; font-size: 0.85rem; background: #222; color: #888; border-radius: 6px; box-shadow: none; border: 1px solid transparent; }
-                .toggle-group button.active { background: var(--color-primary); color: #000; box-shadow: 0 0 10px rgba(255,0,0,0.3); }
+                .setting-row label { margin-top: 0; margin-bottom: 10px; display: block; border-bottom: 1px solid #222; padding-bottom: 4px; }
+                .toggle-group { display: flex; gap: 8px; flex-wrap: wrap; }
+                .toggle-group button { 
+                    padding: 12px 16px; 
+                    font-size: 0.9rem; 
+                    background: #111; 
+                    color: #777; 
+                    border-radius: var(--border-radius); 
+                    box-shadow: none; 
+                    border: 1px solid #222;
+                    flex: 1;
+                    min-width: 80px;
+                }
+                .toggle-group button.active { 
+                    background: var(--color-primary); 
+                    color: #000; 
+                    border-color: var(--color-primary);
+                    box-shadow: 0 0 15px var(--color-primary-glow); 
+                }
                 
-                .settings-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 15px; margin-bottom: 15px; background: rgba(255,255,255,0.02); padding: 15px; border-radius: 12px; }
+                .settings-grid { 
+                    display: grid; 
+                    grid-template-columns: 1fr 1fr; 
+                    gap: 20px; 
+                    margin-bottom: 5px; 
+                    background: rgba(255,255,255,0.03); 
+                    padding: 20px; 
+                    border-radius: var(--border-radius); 
+                }
                 .grid-item { display: flex; flex-direction: column; }
                 .grid-item label { 
                     font-size: 0.75rem; 
                     color: var(--color-text-dim); 
-                    margin-bottom: 8px; 
+                    margin-bottom: 10px; 
                     border-bottom: 1px solid #333; 
                     padding-bottom: 4px; 
                     display: block;
@@ -130,16 +153,42 @@ export default function SetupScreen({ initialSettings, onStart }) {
                 }
                 
                 /* Extra small toggles */
-                .toggle-group.xs button { padding: 10px; font-size: 0.9rem; font-weight: 700; }
+                .toggle-group.xs button { 
+                    padding: 12px 8px; 
+                    font-size: 0.95rem; 
+                    font-weight: 800; 
+                    min-width: 60px;
+                }
 
-                .sliders-compact { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; display: flex; flex-direction: column; gap: 15px; }
-                .slider-row label { margin: 0 0 10px 0; display: flex; justify-content: space-between; font-size: 0.8rem; border-bottom: none; padding-bottom: 0; }
-                /* Removed local slider overrides to use global Styles */
+                .sliders-compact { 
+                    background: rgba(255,255,255,0.03); 
+                    padding: 20px; 
+                    border-radius: var(--border-radius); 
+                    display: flex; 
+                    flex-direction: column; 
+                    gap: 20px; 
+                }
+                .slider-row label { 
+                    margin: 0 0 12px 0; 
+                    display: flex; 
+                    justify-content: space-between; 
+                    font-size: 0.85rem; 
+                    border-bottom: none; 
+                    padding-bottom: 0; 
+                    color: var(--color-text-dim);
+                }
 
-                .start-btn { margin-top: 10px; padding: 18px; font-size: 1.2rem; width: 100%; box-shadow: 0 4px 20px rgba(255,0,0,0.3); }
+                .start-btn { 
+                    margin-top: 20px; 
+                    padding: 20px; 
+                    font-size: 1.25rem; 
+                    letter-spacing: 2px;
+                    width: 100%; 
+                    box-shadow: 0 4px 25px var(--color-primary-glow); 
+                }
                 
-                label { color: #888; font-size: 0.75em; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
-                .val { color: #fff; }
+                label { color: #888; font-size: 0.8em; text-transform: uppercase; font-weight: 800; letter-spacing: 1.5px; }
+                .val { color: #fff; font-weight: 900; }
             `}</style>
         </div >
     );
