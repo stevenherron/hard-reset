@@ -43,15 +43,16 @@ export default function TrainingScreen({ settings, onFinish }) {
         return (
             <span
                 key={idx}
+                className={`combo-move ${isActive ? 'active' : ''} ${isPast ? 'past' : ''}`}
                 style={{
+                    transform: isActive ? 'scale(1.2)' : 'scale(1)',
                     opacity: isActive ? 1 : isPast ? 0.3 : 0.6,
                     color: isActive ? 'var(--color-primary)' : 'inherit',
-                    fontSize: isActive ? '1.5em' : '1em',
-                    fontWeight: isActive ? 'bold' : 'normal',
-                    transition: 'all 0.2s'
+                    fontWeight: isActive ? '800' : '600',
                 }}
             >
-                {mName}{idx < engine.currentCombo.sequence.length - 1 ? ' - ' : ''}
+                {mName}
+                {idx < engine.currentCombo.sequence.length - 1 && <span className="separator"> - </span>}
             </span>
         );
     });
@@ -215,12 +216,29 @@ export default function TrainingScreen({ settings, onFinish }) {
                 .combo-sequence {
                     margin-bottom: 2rem;
                     font-size: 1.4rem;
-                    line-height: 1.2;
                     color: var(--color-text-dim);
                     text-align: center;
                     width: 100%;
-                    font-weight: 600;
-                    letter-spacing: 1px;
+                    white-space: nowrap;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 12px;
+                    min-height: 40px;
+                }
+                .combo-move {
+                    display: inline-block;
+                    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    transform-origin: center;
+                }
+                .combo-move.active {
+                    color: var(--color-primary);
+                    text-shadow: 0 0 10px var(--color-primary-glow);
+                }
+                .separator {
+                    margin-left: 12px;
+                    opacity: 0.3;
+                    font-weight: normal;
                 }
                 .current-move-large {
                     font-size: 3.5rem;
