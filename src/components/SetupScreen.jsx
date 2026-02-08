@@ -49,11 +49,14 @@ export default function SetupScreen({ initialSettings, onStart }) {
                     <div className="grid-item">
                         <label>Rounds</label>
                         <div className="toggle-group xs">
-                            {[120, 180, 300].map(sec => (
-                                <button key={sec} className={formData.roundDuration === sec ? 'active' : ''} onClick={() => setFormData({ ...formData, roundDuration: sec })}>
-                                    {sec / 60}m
-                                </button>
-                            ))}
+                            <button className="active" onClick={() => {
+                                const durations = [120, 180, 300];
+                                const currentIndex = durations.indexOf(formData.roundDuration);
+                                const nextIndex = (currentIndex + 1) % durations.length;
+                                setFormData({ ...formData, roundDuration: durations[nextIndex] });
+                            }}>
+                                {formData.roundDuration / 60}m
+                            </button>
                         </div>
                     </div>
                     <div className="grid-item">
@@ -113,8 +116,8 @@ export default function SetupScreen({ initialSettings, onStart }) {
                 .setting-row label { margin-top: 0; margin-bottom: 10px; display: block; border-bottom: 1px solid #222; padding-bottom: 4px; }
                 .toggle-group { display: flex; gap: 8px; flex-wrap: wrap; }
                 .toggle-group button { 
-                    padding: 12px 16px; 
-                    font-size: 0.9rem; 
+                    padding: 10px 12px; 
+                    font-size: 0.8rem; 
                     background: #111; 
                     color: #777; 
                     border-radius: var(--border-radius); 

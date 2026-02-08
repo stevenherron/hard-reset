@@ -24,7 +24,7 @@ export class RhythmEngine {
         this.settings = {
             roundDuration: 180,
             restDuration: 60,
-            bpm: 100,
+            bpm: 110,
             level: 'Easy',
             sport: 'Boxing',
             resetLength: 4,

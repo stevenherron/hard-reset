@@ -11,7 +11,7 @@ function App() {
         level: 'Easy',
         roundDuration: 120, // 2 mins
         restDuration: 60,
-        bpm: 100,
+        bpm: 110,
         resetLength: 2,
         repetitionCount: 5
     });
